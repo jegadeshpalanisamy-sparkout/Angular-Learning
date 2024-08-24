@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       console.log(document);
+        document.body.innerHTML="welcome";
+
+      const header= document.createElement('h1');
+      document.body.appendChild(header);
+       header.innerText="DOM learning";
+
+
+       const now=new Date();
+       header.innerText=`${now.getTime()}`;
+       header.innerText=`${now.getHours()}:${now.getMinutes()}`;
+
+
+    
+    const input=document.createElement('input');
+    document.body.appendChild(input);
+    
+    input.placeholder="Add Todo";
+
+
+    const btn=document.createElement('button');
+    document.body.appendChild(btn);
+    btn.innerHTML="Add";
+
+    btn.addEventListener('click',()=>{
+        // console.log(input.value);
+        div=document.createElement('div');
+      document.body.appendChild(div);
+        div.innerHTML=input.value;
+        input.value='';
+
+
+    });
+
+
+    </script>
+</body>
+</html>

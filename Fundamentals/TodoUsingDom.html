@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+</head>
+<body>
+    <script>
+         const form=document.createElement('form');
+        document.body.appendChild(form);
+
+        const input=document.createElement('input');
+        input.placeholder='Add TODO';
+        form.appendChild(input);
+
+        const btn=document.createElement('button');
+        btn.innerText="ADD";
+        btn.role='ADD';
+        form.appendChild(btn);
+
+        const ul=document.createElement('ul');
+        document.body.appendChild(ul);
+
+        const removeElement=e=>{
+            e.remove();
+        }
+        form.onsubmit=event=>{
+            event.preventDefault();
+            const li=document.createElement('li');
+            li.innerText=input.value;
+            ul.appendChild(li);
+            input.value='';
+            // li.onclick=()=>{
+            //      li.remove();
+            //  }
+            li.onclick=removeElement.bind(null,li);
+
+        }
+
+       
+    </script>
+</body>
+</html>

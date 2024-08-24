@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        //this keyword in global scope
+        // console.log(this.alert('hii'));//point to window object
+
+        //this keyword inside the function
+        function a(){
+            console.log(this); // based on how the function is called  && strict mode and non strict mode
+        }
+
+        a();
+        window.a();
+
+        //this keyword inside the object
+        const obj={
+            name:'a',
+            x:function(){
+                console.log(this); //print obj
+            }
+        }
+        obj.x();
+
+
+        //this key word in call method
+        const student={
+            name:"A",
+            printName:function(){
+                console.log(this.name);
+            }
+        }
+
+        const student2={
+            name:"B"
+        }
+        student.printName.call(student2);
+
+
+        //this keyword in apply method
+        const person1 = {
+            firstName: 'John',
+            lastName: 'Doe',
+            fullName: function() {
+                return this.firstName + ' ' + this.lastName;
+            }
+        };
+
+        const person2 = {
+            firstName: 'Jane',
+            lastName: 'Smith'
+        };
+        const fullNameOfPerson2 = person1.fullName.apply(person2);
+        console.log(fullNameOfPerson2); 
+
+
+        const numbers = [5, 10, 20, 15];
+        const maxNumber = Math.max.apply(null, numbers);//that null argument point of this keyword argument
+        console.log(maxNumber); 
+
+
+        //bind method
+        const x=person1.fullName.bind(person2)
+        console.log(x);//return function
+        console.log(x());
+    </script>
+</body>
+</html>

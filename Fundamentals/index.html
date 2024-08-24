@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //custom exception
+        let fileName='text.txt';
+        function readFile(fileName) {
+            if(fileName != 'new.txt') {
+
+            let error = new Error('file not found');
+            throw error;
+         }
+        }
+        try {
+            readFile(fileName);
+        } catch (e) {
+            console.log(e.message);
+        }
+      
+    //protoType
+
+        const obj={
+            name:'jega',
+            greet(){
+                console.log("hii");
+            }
+        }
+
+        console.log(Object.getPrototypeOf(obj));
+    //manually added our function into protoType
+
+    Object.prototype.Captialize=function(string){
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+    console.log(obj.Captialize(obj.name));
+    </script>
+</body>
+</html>
