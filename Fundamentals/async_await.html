@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+<body>
+    <script>
+        async function getData(){
+            return "welcome";
+        }
+
+        console.log(getData()); //return promises
+
+        const p=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+            resolve("This is promises")},5000);
+        })
+
+        const p1=new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+            resolve("This is second promises ")},6000);
+        })
+        
+        //normal funcgtion
+        // function a(){
+        //     p.then((res) => console.log(res));
+        //     console.log("hii");
+
+        //     p1.then((res) => console.log(res));
+        //     console.log("helo");
+        // }
+        // a();
+
+        //async with await
+        async function b(){
+            const c=await p;
+
+
+            console.log("hii");
+            console.log(c);
+
+            const c1=await p1;
+
+            console.log("helo");
+            console.log(c1);
+
+            return "promises completed";
+        }
+        console.log("welcome");
+        b().then(resolve=>console.log(resolve));
+
+
+
+    </script>
+</body>
+</html>

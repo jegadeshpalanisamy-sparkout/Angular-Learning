@@ -69,6 +69,37 @@
         const x=person1.fullName.bind(person2)
         console.log(x);//return function
         console.log(x());
+
+
+
+        //this keyword inside the arrow function
+        const sports1 = {
+            name : 'cricket',
+            printName : ()=>{ 
+                console.log(this.name);//not return cricket .it poits global lexical context now that point window object
+            }
+        }
+        sports1.printName();
+
+        const sports2 = {
+            name : 'cricket',
+            printName : function(){ 
+                //enclosing lexical context
+                const z=()=>{
+                    console.log(this.name); //now it print cricket it point now  sports2 obj
+                }
+                z();
+            }
+        }
+        sports2.printName();     
+    
+
     </script>
+    <!-- //this keyword inside the dom -->
+     <button onclick="alert(this)">Click me</button>
+     <button onclick="alert(this.tagName)">Click me</button>
+
+     
+
 </body>
 </html>
