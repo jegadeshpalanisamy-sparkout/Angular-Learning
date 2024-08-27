@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
-
+import { CommonModule } from '@angular/common';
+import { TwinkleDirective } from './directive/twinkle.directive';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule,CounterComponent],
+  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -98,4 +99,48 @@ export class AppComponent {
   //     this.formData = 'Input field not found.';
   //   }
   // }
+
+//structure directive 
+  places =[
+    'ooty',
+    'coimbatore',
+    'tirupur',
+    'erode'
+  ];
+
+
+
+  users = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 35 },
+    { name: 'David', age: 28 },
+    { name: 'Eve', age: 22 }
+  ];
+
+
+  groups=[
+    {
+      name:'Group A',
+      member:['alice','alan','arjun']
+    },
+    {
+      name:'Group b',
+      member:['babu','balu','barani']
+    },
+    {
+      name:'Group c',
+      member:['kavin','kannan','kumar']
+    }
+  ]
+
+
+  showMe=true
+  isLoading=false
+
+  person={
+    age:20,isIndian:true
+  };
+
+  applyBg=false;
 }

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-
+import { TwinkleDirective } from '../directive/twinkle.directive';
 @Component({
   selector: 'app-counter',
   standalone: true,
-  imports: [],
+  imports: [TwinkleDirective],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.css'
 })

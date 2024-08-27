@@ -18,7 +18,6 @@
 <h5>The button was clicked {{clickCount}} times.</h5>
 <button (click)='buttonClickCount()'>click me</button> <br><br>
 
-<app-counter></app-counter>
 
 
 <!-- Combined Example: Property Binding and Event Binding -->
@@ -52,8 +51,95 @@
 <p>You pressed: {{ keyPressed }}</p>
 
 <!-- submit   -->
- <h4>{{formData}}</h4>
+ <!-- <h4>{{formData}}</h4>
  <form (submit)="handleSubmit($event)">
     <input name="inputField" placeholder="Type something">
     <button type="submit">Submit</button>
-  </form>
+  </form> -->
+<br>
+<h2>ngFor:</h2>
+<!--  Basic Looping through an Array
+ -->
+<p *ngFor="let place of places">{{place}}</p>
+<!--  Using the Index in a Loop
+ -->
+<p *ngFor="let place of places; let i=index">{{i+1}}.{{place}}</p>
+
+<!--  Using first, last, and odd
+ -->
+<ul>
+  <li *ngFor="let place of places;let i=index;let first=first;let last=last;let even=even;let odd=odd">
+    {{i}}.{{place}}
+    <span *ngIf="first">{{first}}</span>
+    <span *ngIf="last">(last)</span>
+    <span *ngIf="even">(even)</span>
+    <span *ngIf="odd">(odd)</span>
+
+  </li>
+</ul>
+ <!--  Looping Through an Array of Objects
+ -->
+ <ul>
+  <li *ngFor="let user of users ">
+   name:{{user.name}}, age:{{user.age}}
+  </li>
+ </ul>
+
+
+<!-- get 0 index -->
+ <ul>
+  <li *ngFor="let place of places">
+    {{place[0]}}
+  </li>
+ </ul>
+
+ <!--  Nested *ngFor -->
+   <h2>Nested *ngFor </h2>
+  <div *ngFor="let group of groups">
+    <h1>{{group.name}}</h1>
+    <ul *ngFor="let member of group.member">
+      <li>{{member}}</li>
+
+    </ul>
+    
+  </div>
+  <!-- ngIf -->
+   <input type="checkbox" [(ngModel)]="showMe">
+  <p *ngIf="showMe">Show me</p>
+
+  <!-- using else -->
+  <div *ngIf="isLoading; else content">
+    <p>Loading...</p>
+  </div>
+  
+  <ng-template #content>
+    <p>Data has been loaded!</p>
+  </ng-template>
+
+
+  <!--using conditions  -->
+  <div *ngIf="person.age>=18 && person.isIndian; else notEligible">
+    <h1>Person Eligible for vote</h1>
+  </div>
+
+  <ng-template #notEligible>
+    <h1>Person not eleigible for voting</h1>
+  </ng-template>
+<br>
+
+  <!-- attribute Directive -->
+   <h1 [ngClass]="['color','bg']">This is class attribute</h1>
+
+   <!-- <h1 [ngClass]="{'color','bg':applyBg}">This is class attribute</h1> -->
+   <h1 [ngClass]="{'color': applyBg, 'bg': applyBg}">This is class attribute</h1>
+
+   <!-- two way binding using class -->
+    <input type="checkbox" [(ngModel)]="applyBg">
+    <h6 [ngClass]="{'bg':applyBg}">Sample text</h6>
+
+<!-- ngStyle -->
+ <h2 [ngStyle]="{'color':'red','font-style':'italic'}">hello how are you</h2>
+
+
+ <app-counter></app-counter>
+
