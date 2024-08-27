@@ -4,10 +4,13 @@ import { RouterOutlet } from '@angular/router';
 import { CounterComponent } from './counter/counter.component';
 import { CommonModule } from '@angular/common';
 import { TwinkleDirective } from './directive/twinkle.directive';
+import { PipeComponent } from './pipe/pipe.component';
+import { FormComponent } from './form/form.component';
+import { ListComponent } from './list/list.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule],
+  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule,PipeComponent,FormComponent,ListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -143,4 +146,11 @@ export class AppComponent {
   };
 
   applyBg=false;
+
+  bikes:string[]=[];
+
+  onBikeAdded(bike:string){
+    console.log(bike);
+    this.bikes.push(bike);
+  }
 }

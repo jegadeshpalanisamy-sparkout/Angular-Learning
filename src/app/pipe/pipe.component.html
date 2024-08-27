@@ -1,0 +1,54 @@
+<h1>pipe works!</h1>
+
+<p>Informated date:{{toDate}}</p>
+<p>formated date:{{toDate|date}}</p>
+<p>with time date:{{toDate|date:'medium'}}</p>
+<p>short date:{{toDate|date:'short'}}</p>
+<p>long date:{{toDate|date:'long'}}</p>
+<p> date:{{toDate|date:'d:m:y'}}</p>
+
+
+<!-- slice -->
+ <p>{{data|slice:0:5}}</p>
+
+ <ul>
+    <li *ngFor="let arr of arr | slice:0:2">{{arr}}</li>
+ </ul>
+
+ <!-- uppercaase and lower case -->
+ <p>{{data|uppercase}}</p>
+ <p>{{data|lowercase}}</p>
+
+ <!-- currency pipe -->
+  <p>price without currency {{price}}</p>
+  <p>price with currency {{price|currency}}</p>
+  <p>Indian currency {{price|currency:'INR'}}</p>
+
+
+<!-- decimal pipe -->
+<p>Original Number: {{ numberValue }}</p>
+
+<p>Default Format: {{ numberValue | number }}</p>
+
+<p>Two Decimal Places: {{ numberValue | number:'1.2-2' }}</p>
+
+<p>Three Integer Digits, Two Decimal Places: {{ numberValue | number:'3.2-2' }}</p>
+
+<p>Four Integer Digits, No Decimal Places: {{ numberValue | number:'4.0-0' }}</p>
+
+
+<!-- Async pipe -->
+
+<div>Async data:{{jsonData|async|json}}</div>
+<br>
+<h1>
+    current date and time:{{currentDateAndTime$|async}}
+</h1>
+<br>
+<h4>Async data from observable:{{newData|async|json}}</h4>
+
+<div>
+    <code>promise|async</code>:
+    <button (click)="clicked()">{{ arrived ? 'Reset' : 'Resolve' }}</button>
+    <span>Wait for it... {{ greeting | async }}</span>
+  </div>

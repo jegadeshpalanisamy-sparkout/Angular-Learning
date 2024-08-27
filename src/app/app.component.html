@@ -143,3 +143,9 @@
 
  <app-counter></app-counter>
 
+<app-pipe></app-pipe>
+
+<br><br>
+<h1>Data passing into two components</h1>
+<app-form (bikeAdded)="onBikeAdded($event)"></app-form>
+<app-list [bikes]="bikes"></app-list>
