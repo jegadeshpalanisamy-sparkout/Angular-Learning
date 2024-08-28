@@ -7,10 +7,11 @@ import { TwinkleDirective } from './directive/twinkle.directive';
 import { PipeComponent } from './pipe/pipe.component';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
+import { LifeCycleHookComponent } from './life-cycle-hook/life-cycle-hook.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule,PipeComponent,FormComponent,ListComponent],
+  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule,PipeComponent,FormComponent,ListComponent,LifeCycleHookComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -147,10 +148,19 @@ export class AppComponent {
 
   applyBg=false;
 
-  bikes:string[]=[];
+  // bikes:string[]=[];
 
-  onBikeAdded(bike:string){
-    console.log(bike);
-    this.bikes.push(bike);
-  }
+  // onBikeAdded(bike:string){
+  //   console.log(bike);
+  //   this.bikes.push(bike);
+  // }
+
+  colorList=[
+    {id:1,name:'red'},
+    {id:2,name:'green'},
+    {id:3,name:'blue'},
+    {id:4,name:'violet'},
+    {id:5,name:'yellow'},
+
+  ]
 }
