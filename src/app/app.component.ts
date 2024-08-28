@@ -8,10 +8,12 @@ import { PipeComponent } from './pipe/pipe.component';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
 import { LifeCycleHookComponent } from './life-cycle-hook/life-cycle-hook.component';
-@Component({
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+  @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule,PipeComponent,FormComponent,ListComponent,LifeCycleHookComponent],
+  imports: [RouterOutlet,FormsModule,CounterComponent,CommonModule,PipeComponent,FormComponent,ListComponent,LifeCycleHookComponent,TemplateDrivenFormComponent,ReactiveFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

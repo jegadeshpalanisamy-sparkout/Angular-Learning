@@ -1,0 +1,89 @@
+<h1>reactive-form works!</h1>
+
+<div class="container">
+    <h2>Reactive form</h2>    
+    <form  [formGroup]="makeFormGroup" (submit)="onSubmit()">
+        <label for="first-name">First Name:</label><br>
+        <input type="text" id="first-name" name="first_name" formControlName="firstName" ><br><br>
+        <!-- <span *ngIf="!makeFormGroup.controls.firstName.valid &&(makeFormGroup.controls.firstName.touched || makeFormGroup.controls.firstName.dirty)">
+            This field is required
+        </span> -->
+        <span  *ngIf="!firstname?.valid &&(firstname?.touched || firstname?.dirty)">
+            <span  class="text-danger" *ngIf="firstname?.errors?.['required']" >
+                first name field is required
+            </span>
+            <span  class="text-danger" *ngIf="firstname?.errors?.['maxlength']" >
+                max length only 5 characters
+            </span>
+        </span><br>
+        <label for="last-name">Last Name:</label><br>
+        <input type="text" id="last-name" name="last_name"  formControlName="lastName" ><br><br>
+        <span  *ngIf="!lastname?.valid &&(lastname?.touched || lastname?.dirty)">
+            <span  class="text-danger" *ngIf="lastname?.errors?.['required']" >
+                last name field is required
+            </span>
+            <span  class="text-danger" *ngIf="lastname?.errors?.['minlength']" >
+                min length 2 characters
+            </span>
+            <span class="text-danger" *ngIf="lastname?.errors?.['pattern']">
+                 only alphabetic characters allowed
+            </span>
+        </span><br>
+
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"  formControlName="email" ><br><br>
+        <span  *ngIf="!email?.valid &&(email?.touched || email?.dirty)">
+            <span  class="text-danger" *ngIf="email?.errors?.['required']" >
+                 email field is required
+            </span>
+        </span>
+
+        <label for="gender">Gender:</label><br>
+        <input type="radio" value="male" id="gender" name="gender" formControlName="gender"  >male
+        <input type="radio" value="female" id="gender" name="gender" formControlName="gender" >female  <br>
+        <span  *ngIf="!gender?.valid &&(gender?.touched || gender?.dirty)">
+            <span  class="text-danger" *ngIf="gender?.errors?.['required']" >
+                 gender field is required
+            </span>
+        </span>
+
+        <label for="isMarried">Married:</label><br>
+        <input type="checkbox" id="isMarried" name="isMarried" formControlName="married" > <br>
+        <span  *ngIf="!marriedStatus?.valid &&(marriedStatus?.touched || marriedStatus?.dirty)">
+            <span  class="text-danger" *ngIf="marriedStatus?.errors?.['required']" >
+                 Married field is required
+            </span>
+        </span>
+
+        <label for="country">Country:</label><br>
+        <select id="country" name="country"  formControlName="country">
+            <option value="">Select</option>
+            <option [ngValue]="country.id" *ngFor="let country of CountryList">{{country.name}}</option>            
+       </select><br><br>
+
+       <div formGroupName="address">
+
+        <label for="street">street:</label><br>
+        <input type="text" id="street" name="street"  formControlName="street"><br><br>
+        <span  *ngIf="!streets?.valid &&(streets?.touched || streets?.dirty)">
+            <span  class="text-danger" *ngIf="streets?.errors?.['required']" >
+                address field is required
+            </span>
+        </span>
+
+        <label for="pincode">pincode:</label><br>
+        <input type="text" id="pincode" name="pincode" formControlName="pincode" ><br><br>
+        <span  *ngIf="!pin?.valid &&(pin?.touched || pin?.dirty)">
+            <span  class="text-danger" *ngIf="pin?.errors?.['required']" >
+                pincode is required
+            </span>
+        </span>
+
+       </div>
+
+        <input type="submit" [disabled]="!makeFormGroup.valid">
+    </form>
+</div>
+
+
