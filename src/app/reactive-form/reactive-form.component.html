@@ -54,7 +54,7 @@
             <span  class="text-danger" *ngIf="marriedStatus?.errors?.['required']" >
                  Married field is required
             </span>
-        </span>
+        </span><br>
 
         <label for="country">Country:</label><br>
         <select id="country" name="country"  formControlName="country">
@@ -68,9 +68,9 @@
         <input type="text" id="street" name="street"  formControlName="street"><br><br>
         <span  *ngIf="!streets?.valid &&(streets?.touched || streets?.dirty)">
             <span  class="text-danger" *ngIf="streets?.errors?.['required']" >
-                address field is required
+                street field is required
             </span>
-        </span>
+        </span><br>
 
         <label for="pincode">pincode:</label><br>
         <input type="text" id="pincode" name="pincode" formControlName="pincode" ><br><br>
@@ -78,7 +78,7 @@
             <span  class="text-danger" *ngIf="pin?.errors?.['required']" >
                 pincode is required
             </span>
-        </span>
+        </span><br>
 
        </div>
 

@@ -27,7 +27,7 @@ export class ReactiveFormComponent {
     },[Validators.required]),
     country:new FormControl("",[Validators.required]),
     gender: new FormControl("",[Validators.required]),
-    married: new FormControl("",[Validators.required]),
+    married: new FormControl("",[Validators.requiredTrue]),
     address:new FormGroup({
       street: new FormControl("",[Validators.required]),
       pincode: new FormControl("",[Validators.required])
